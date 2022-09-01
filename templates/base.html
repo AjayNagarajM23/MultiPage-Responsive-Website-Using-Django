@@ -69,8 +69,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/conus"><b>Contact Us</b></a>
                 </li>
-            </ul>{% if user.is_authenticated %}
-            <label style="background-color: #ddffdd;">{{ message }}</label>
+            </ul>
+            {% if user.is_authenticated %}
+            <label style="background-color: #ddffdd;">{{ user.first_name }}</label>
             {% endif %}
             <button
                     class="btn btn-outline-dark"
