@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block title %}Contact us{% endblock title %}
+{% block body %} {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+        <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+        ></button>
+        <b> {{ message }} </b>
+    </div>
+{% endfor %}
+    <div class="container-fluid">
+        <img src="/static/images/conus.jpg" style="padding-left: 170px" alt="..."/>
+    </div>
+
+    <div class="container my-5">
+        <form action="/conus" method="post">
+            {% csrf_token %}
+            <label
+                    style="
+        font-weight: bolder;
+        color: white;
+        font-size: xxx-large;
+        text-align: center;
+      "
+            >Vidya Degula</label
+            >
+            <div class="mb-3">
+                <label
+                        for="exampleFormControlInput1"
+                        class="form-label"
+                        style="font-weight: bolder; color: white"
+                >User name</label
+                >
+                <input
+                        type="text"
+                        class="form-control"
+                        name="conName"
+                        placeholder="Name"
+                        required=""
+                />
+            </div>
+            <div class="mb-3">
+                <label
+                        for="exampleFormControlInput1"
+                        class="form-label"
+                        style="font-weight: bolder; color: white"
+                >Email address</label
+                >
+                <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        placeholder="name@example.com"
+                        required=""
+                />
+            </div>
+            <div class="mb-3">
+                <label
+                        for="exampleFormControlTextarea1"
+                        class="form-label"
+                        style="font-weight: bolder; color: white"
+                >Type your query here</label
+                >
+                <textarea
+                        class="form-control"
+                        name="query"
+                        rows="3"
+                        required=""
+                ></textarea>
+            </div>
+            <button
+                    type="submit"
+                    class="btn btn-primary btn-lg col-6 mx-auto d-grid gap-2"
+            >
+                Submit
+            </button>
+        </form>
+    </div>
+{% endblock body %}

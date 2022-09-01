@@ -1,0 +1,9 @@
+table{
+  font-family: Calibri, fantasy;
+  font-style: normal;
+  font-weight: bold;
+  border-collapse: collapse;
+}
+table.inner{
+  border: 0px
+}

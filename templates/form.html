@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %} Form {% endblock title %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <h3 style="color: yellow;font-size: xxx-large ; text-align: center">STUDENT REGISTRATION FORM</h3>
+        <div class="container my-4 "
+             style="border-radius: 30px ; border: 6px solid goldenrod ; background-color: rgb(223,221,185) ">
+            <form method="post" action="/afs">
+                {% csrf_token %}
+                <table align="center" cellpadding="10">
+                    <tr>
+                        <td>FIRST NAME</td>
+                        <td><input type="text" name="fname" maxlength="30"/>(max 30 characters a-z and A-Z)</td>
+                    </tr>
+                    <tr>
+                        <td>LAST NAME</td>
+                        <td><input type="text" name="lname" maxlength="30"/>
+                            (max 30 characters a-z and A-Z)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>DATE OF BIRTH</td>
+                        <td>
+                            <label>
+                                <input type="date" name="dob">
+                            </label>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>EMAIL ID</td>
+                        <td><input type="text" name="mail" maxlength="100"/></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>MOBILE NUMBER</td>
+                        <td>
+                            <input type="text" name="phno" maxlength="10"/>
+                            (10 digit number)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>GENDER</td>
+                        <td>
+                            Male <input type="radio" name="Gender" value="Male"/>
+                            Female <input type="radio" name="Gender" value="Female"/>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>ADDRESS <br/><br/><br/></td>
+                        <td><textarea name="address" rows="4" cols="30"></textarea></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>CITY</td>
+                        <td><input type="text" name="city" maxlength="30"/>
+                            (max 30 characters a-z and A-Z)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PIN CODE</td>
+                        <td><input type="text" name="code" maxlength="6"/>
+                            (6 digit number)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>STATE</td>
+                        <td><input type="text" name="state" maxlength="30"/>
+                            (max 30 characters a-z and A-Z)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>COUNTRY</td>
+                        <td><input type="text" name="country" value="India" readonly="readonly"/></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>QUALIFICATION <br/><br/><br/><br/><br/><br/><br/></td>
+
+                        <td>
+                            <table>
+                                <tr>
+                                    <td align="center"><b>Sl.No.</b></td>
+                                    <td align="center"><b>Percentage</b></td>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Class X</td>
+                                    <td><input type="text" name="per10" maxlength="30"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Class XII</td>
+                                    <td><input type="text" name="per12" maxlength="30"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Graduation</td>
+                                    <td><input type="text" name="bach" maxlength="30"/></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>COURSES<br/>APPLIED FOR</td>
+                        <td>
+                            <label>
+                                <input type="text" name="crs" placeholder="Enter Current course" maxlength="30">
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="btn btn-success col-6 mx-auto d-grid gap-2">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    {% else %}
+        <div class="container" style="background-color: #ddffdd">
+            <img src="/static/images/loginErr.png" alt="..." style="padding-left: 250px">
+        </div>
+    {% endif %}
+{% endblock body %}
