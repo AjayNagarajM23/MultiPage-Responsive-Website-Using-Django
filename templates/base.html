@@ -71,23 +71,25 @@
                 </li>
             </ul>
             {% if user.is_authenticated %}
-            <label style="background-color: #ddffdd;">{{ user.first_name }}</label>
+                <label style="background-color: #ddffdd;">{{ user.first_name }} {{ user.last_name }}</label>
             {% endif %}
-            <button
-                    class="btn btn-outline-dark"
-                    style="margin-left: 30px"
-                    type="submit"
-            >
-                <a href="/signin" style="color: white"> <b>SignIn | signUp</b> </a>
-            </button>
+
             {% if user.is_authenticated %}
-            <button
-                    class="btn btn-outline-danger"
-                    style="margin-left: 30px"
-                    type="submit"
-            >
-                <a href="/signout" style="color: white"> <b>Logout</b> </a>
-            </button>
+                <button
+                        class="btn btn-outline-danger"
+                        style="margin-left: 30px"
+                        type="submit"
+                >
+                    <a href="/signout" style="color: white"> <b>Logout</b> </a>
+                </button>
+            {% else %}
+                <button
+                        class="btn btn-outline-dark"
+                        style="margin-left: 30px"
+                        type="submit"
+                >
+                    <a href="/signin" style="color: white"> <b>SignIn | signUp</b> </a>
+                </button>
             {% endif %}
         </div>
     </div>
