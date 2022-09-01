@@ -25,15 +25,20 @@ def signup(request):
     if request.method == "POST":
         username = request.POST['username']
         email = request.POST['email']
-        password = request.POST['pswd']
+        password = request.POST['password']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
 
         if User.objects.filter(username=username):
             messages.error(request, "Username Already Exists")
-            return redirect('authentication')
+            return redirect('index')
         if User.objects.filter(email=email):
-            return redirect('authentication')
+            messages.error(request, "Email Already Exists")
+            return redirect('index')
 
         myuser = User.objects.create_user(username, email, password)
+        myuser.first_name = fname
+        myuser.last_name = lname
 
         myuser.save()
         messages.success(request, "Your account has successfully created")
@@ -46,25 +51,24 @@ def signup(request):
 def signin(request):
     if request.method == "POST":
         username = request.POST['username']
-        password = request.POST['pswd']
+        password = request.POST['password']
 
         user = authenticate(username=username, password=password)
 
         if user is not None:
             login(request, user)
-            messages.success(request, "Logged in successfully ->" + username)
-            return render(request, 'index.html')
+            messages.success(request, username + " Successfully Logged In")
+            return redirect('index')
         else:
             messages.error(request, "Bad credentials")
-
-        return redirect('index')
+            return redirect('index')
 
     return render(request, 'signin.html')
 
 
 def signout(request):
     logout(request)
-    messages.success(request, "Logged out Successfully")
+    messages.success(request, " Logged out Successfully ")
     return redirect('index')
 
 
@@ -80,6 +84,7 @@ def conus(request):
         recipient_list = ['ajaynagarajm23@gmail.com']
         send_mail(subject, message, email_from, recipient_list)
         messages.success(request, "Mail sent Successfully")
+        return redirect('index')
 
     return render(request, 'conus.html')
 
@@ -127,6 +132,7 @@ def afs(request):
         )
         email.attach_alternative(html_content, "text/html")
         email.send()
+        return redirect('afs')
 
     return render(request, 'apply.html')
 

@@ -10,9 +10,8 @@
         <b> {{ message }} </b>
     </div>
 {% endfor %}
-    <div class="container-fluid">
-        <img src="/static/images/conus.jpg" style="padding-left: 170px" alt="..."/>
-    </div>
+    <div class="container">
+        <img src="/static/images/conus.jpg" style="max-width: 100% ; height: auto ; border: 6px solid darkgoldenrod; border-radius: 30px" class="my-3"  alt="..."/>
 
     <div class="container my-5">
         <form action="/conus" method="post">
@@ -77,5 +76,6 @@
                 Submit
             </button>
         </form>
+    </div>
     </div>
 {% endblock body %}
