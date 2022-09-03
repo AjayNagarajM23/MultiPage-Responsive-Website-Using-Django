@@ -78,7 +78,7 @@ def conus(request):
         mail = request.POST['email']
         query = request.POST['query']
 
-        subject = 'It is a query from :' + name
+        subject = 'It is a query from :' + name+"Email: "+mail
         message = query
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['ajaynagarajm23@gmail.com']
