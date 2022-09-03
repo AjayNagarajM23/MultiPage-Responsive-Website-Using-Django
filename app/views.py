@@ -31,10 +31,10 @@ def signup(request):
 
         if User.objects.filter(username=username):
             messages.error(request, "Username Already Exists")
-            return redirect('index')
+            return redirect('signup')
         if User.objects.filter(email=email):
             messages.error(request, "Email Already Exists")
-            return redirect('index')
+            return redirect('signup')
 
         myuser = User.objects.create_user(username, email, password)
         myuser.first_name = fname
@@ -60,8 +60,8 @@ def signin(request):
             messages.success(request, username + " Successfully Logged In")
             return redirect('index')
         else:
-            messages.error(request, "Bad credentials")
-            return redirect('index')
+            messages.error(request, "Bad credentials ( Wrong Username Or Password")
+            return redirect('signin')
 
     return render(request, 'signin.html')
 
