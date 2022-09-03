@@ -60,7 +60,7 @@ def signin(request):
             messages.success(request, username + " Successfully Logged In")
             return redirect('index')
         else:
-            messages.error(request, "Bad credentials ( Wrong Username Or Password")
+            messages.error(request, "Bad credentials ( Wrong Username Or Password )")
             return redirect('signin')
 
     return render(request, 'signin.html')
