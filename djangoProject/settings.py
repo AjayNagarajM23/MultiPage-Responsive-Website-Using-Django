@@ -17,6 +17,12 @@ from .info import *
 import django_heroku
 import dj_database_url
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "internship.exposys.ajay@gmail.com"
+EMAIL_HOST_PASSWORD = "uqyeuxrwarclsmho"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +39,7 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure--5^4qros_hu&bjbka#(cq8dev!$-15m_=w@per43)#r4$$fbs0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', ]
 
@@ -143,9 +149,4 @@ django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "tempproject20@gmail.com"
-EMAIL_HOST_PASSWORD = "sxsbufcgzhddiqof"
+

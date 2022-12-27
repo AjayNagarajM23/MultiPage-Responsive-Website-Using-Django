@@ -77,9 +77,10 @@ def conus(request):
         name = request.POST['conName']
         mail = request.POST['email']
         query = request.POST['query']
+        phno = request.POST['phno']
 
-        subject = 'It is a query from :' + name+"Email: "+mail
-        message = query
+        subject = name+" : "+mail
+        message = query+"   :    "+phno
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['ajaynagarajm23@gmail.com']
         send_mail(subject, message, email_from, recipient_list)
@@ -132,6 +133,7 @@ def afs(request):
         )
         email.attach_alternative(html_content, "text/html")
         email.send()
+        messages.success(request, "Your Application For Scholarship has been Submitted")
         return redirect('afs')
 
     return render(request, 'apply.html')
