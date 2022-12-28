@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from .models import Annoucement
 
 
 # Create your views here.
@@ -79,8 +80,8 @@ def conus(request):
         query = request.POST['query']
         phno = request.POST['phno']
 
-        subject = name+" : "+mail
-        message = query+"   :    "+phno
+        subject = name + " : " + mail
+        message = query + "   :    " + phno
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['ajaynagarajm23@gmail.com']
         send_mail(subject, message, email_from, recipient_list)
@@ -141,3 +142,19 @@ def afs(request):
 
 def forms(request):
     return render(request, 'form.html')
+
+
+def ans(request):
+    announcement = Annoucement.objects.all()
+    return render(request, 'ans.html', {'data':announcement})
+
+
+def enterans(request):
+    if request.method == "POST":
+        annou = request.POST['announcement']
+        img = request.FILES["photo"]
+        desc = request.POST['desc']
+        ans_info = Annoucement(title=annou, img=img, description=desc)
+        ans_info.save()
+        messages.success(request, "New Announcement Added")
+    return render(request, 'enterans.html')

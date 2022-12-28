@@ -26,5 +26,7 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('conus', views.conus, name='conus'),
     path('afs', views.afs, name='afs'),
-    path('forms', views.forms, name='forms')
+    path('forms', views.forms, name='forms'),
+    path('enterans', views.enterans, name='enterans'),
+    path('ans', views.ans, name='ans')
 ]

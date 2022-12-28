@@ -44,9 +44,13 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"
 ></script>
-<nav class="navbar navbar-expand-lg"
+<nav class="navbar navbar-expand-lg bg-body-tertiary"
      style="background-color: #e3f2fd; border:6px solid #4ac1f7  ; border-radius: 20px; margin-bottom: 20px">
-    <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img
                     src="/static/images/logo.png"
@@ -70,6 +74,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/afs"><b>Apply For Scholarships</b></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/ans"><b>Announcements</b></a>
+                </li>
+                {% if user.is_authenticated and user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/enterans"><b>Add Announcement</b></a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link active" href="/conus"><b>Contact Us</b></a>
                 </li>
