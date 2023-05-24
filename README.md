@@ -3,6 +3,7 @@
 ### Has Feature of Sign-Up and Sign-In
 ### Automatic Mail Feature
 ### Filled Application of student will be sent to e-mail of student and the Admin.
+The website will be available at http://ajaynm2001.pythonanywhere.com/
 
 ## Home Page
 ![image](https://user-images.githubusercontent.com/105035860/210096351-2f0847cd-2a50-4eb4-805d-da40c8597fa0.png)
